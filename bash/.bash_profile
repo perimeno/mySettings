@@ -22,6 +22,8 @@ alias ggs='cd //srvvm-rnd/git/Common'
 alias vsenv='/d/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 12.0/VC/vcvarsall.bat'
 alias sd='ssh docker31'
 alias webapp='cd /d/W\ o\ r\ k/gitRepos/AD/WebApp/'
+alias socks='sudo ssh -D 1234 -f -C -N -p 443 -i /home/l/.ssh/lvitez_priv_tunel@raci.dynu.com'
+alias socks2='sudo ssh -D 1234 -C -p 443 -i /home/l/.ssh/lvitez_priv tunel@raci.dynu.com'
 
 env=~/.ssh/agent.env
 
