@@ -98,6 +98,26 @@
           }
         }]
     },
+{
+      "description" : "shift insert",
+      "manipulators":[
+        {
+          "type":"basic",
+          "from":{
+            "key_code":"insert",
+            "modifiers": {
+              "mandatory": ["left_shift"]
+              }
+          },
+          "to":{
+            "pointing_button": "button3"
+          }
+        }]
+    },
+
+
+
+
 
 {
       "description": "PC-Style Control+Delete - FIXED!!!",
