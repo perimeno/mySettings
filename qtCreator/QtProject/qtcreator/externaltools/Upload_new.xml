@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Written on P nov. 29 00:16:51 2019 by Qt Creator 4.10.2-->
+<externaltool id="Upload_new">
+    <description>Upload firmware for v4.0</description>
+    <displayname>Upload_new</displayname>
+    <category>ESP</category>
+    <executable output="showinpane" error="showinpane" modifiesdocument="no">
+        <path>%{Env:IDF_PATH}/tools/idf.py</path>
+        <arguments>-p /dev/ttyUSB0 flash</arguments>
+        <workingdirectory>%{CurrentProject:BuildPath}</workingdirectory>
+    </executable>
+</externaltool>

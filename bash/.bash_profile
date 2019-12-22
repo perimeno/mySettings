@@ -1,48 +1,31 @@
-PATH=$PATH:/c/Program\ Files/KDiff3:/c/Program\ Files/Mozilla\ Firefox
-alias vet5c='cd /d/W\ o\ r\ k/gitRepos/Vet5c'
-alias hm5c='cd /d/W\ o\ r\ k/gitRepos/Hm5c'
-alias sha='cd /d/W\ o\ r\ k/gitRepos/SHA'
-alias a3cp='cd /d/W\ o\ r\ k/gitRepos/A3CPC'
-alias acs3cp='cd /d/W\ o\ r\ k/gitRepos/ACS3CP'
-alias acs='cd /d/W\ o\ r\ k/gitRepos/ACS'
-alias gs='git status'
-alias gco='git commit -m'
-alias gcm='git checkout master'
-alias gd='git difftool'
-alias gg='cd /d/W\ o\ r\ k/gitRepos/'
-alias bs='~/branch-status.sh'
-alias gme='git merge'
-alias gpl='git pull'
-alias gps='git push'
-alias gc='git checkout'
-alias gitg='/c/Program\ Files/gitg/bin/gitg.exe'
-alias gsu='git submodule update'
-alias gsi='git submodule init'
-alias ggs='cd //srvvm-rnd/git/Common'
-alias vsenv='/d/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 12.0/VC/vcvarsall.bat'
-alias sd='ssh docker31'
-alias webapp='cd /d/W\ o\ r\ k/gitRepos/AD/WebApp/'
-alias socks='sudo ssh -D 1234 -f -C -N -p 443 -i /home/l/.ssh/lvitez_priv_tunel@raci.dynu.com'
-alias socks2='sudo ssh -D 1234 -C -p 443 -i /home/l/.ssh/lvitez_priv tunel@raci.dynu.com'
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
 
-env=~/.ssh/agent.env
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
 
-agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
-
-agent_start () {
-    (umask 077; ssh-agent >| "$env")
-    . "$env" >| /dev/null ; }
-
-agent_load_env
-
-# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
-agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
-
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
-    agent_start
-    ssh-add "$HOME/.ssh/`git config --global user.name`"
-elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
-    ssh-add "$HOME/.ssh/`git config --global user.name`"
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
 fi
 
-unset env
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+if [ -f ~/.bash_aliases ]; then
+ . ~/.bash_aliases
+fi
+
+. ~/.bash_myEnv

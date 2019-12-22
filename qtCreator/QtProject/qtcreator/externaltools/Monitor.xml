@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Written on H júl. 8 00:31:43 2019 by Qt Creator 4.9.2-->
+<externaltool id="Monitor">
+    <description>Attach monitor to the device</description>
+    <displayname>Monitor</displayname>
+    <category>ESP</category>
+    <executable output="showinpane" error="showinpane" modifiesdocument="no">
+        <path>gnome-terminal</path>
+        <arguments>--working-directory %{CurrentProject:BuildPath} -- %{Env:IDF_PATH}/tools/idf_monitor.py --port /dev/ttyUSB0 %{CurrentProject:Name}.elf</arguments>
+        <workingdirectory>%{CurrentProject:BuildPath}</workingdirectory>
+        <baseEnvironmentId>CurrentBuild:Env</baseEnvironmentId>
+    </executable>
+</externaltool>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Written on V júl. 21 23:37:25 2019 by Qt Creator 4.9.2-->
+<externaltool id="New_Tool">
+    <description>Upload firmware</description>
+    <displayname>Upload</displayname>
+    <category>ESP</category>
+    <executable output="showinpane" error="showinpane" modifiesdocument="no">
+        <path>%{Env:IDF_PATH}/components/esptool_py/esptool/esptool.py</path>
+        <arguments>--port /dev/ttyUSB0 --baud 1843200 write_flash @flash_project_args</arguments>
+        <workingdirectory>%{CurrentProject:BuildPath}</workingdirectory>
+    </executable>
+</externaltool>
